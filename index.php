@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -22,24 +22,42 @@ session_start();
     </main>
 
     <script>
+        // recuperer les films populaires
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=7c8573e07bc29f162cd95a3850c8b3b1', {
             method: 'GET'
         }).then((res) =>
             res.json()
         ).then((data) => {
             data.results.filter(function(resultats) {
-                // console.log(resultats);
+                console.log(resultats);
                 let films = document.getElementById("films");
                 let p = document.createElement('p');
                 let img = document.createElement('img');
                 img.src = "https://image.tmdb.org/t/p/original" + resultats.poster_path;
-                p.innerHTML += resultats.title;
+                p.innerHTML = resultats.title;
                 p.append(img);
                 //    console.log(p.innerHTML);
                 films.append(p);
             });
         })
-
+        // fetch(' https://api.themoviedb.org/3/search/multi?api_key=7c8573e07bc29f162cd95a3850c8b3b1&language=en-US&page=1&include_adult=false', {
+        //     method: 'GET'
+        // }).then((res) =>
+        //     res.json()
+        // ).then((data) => {
+        //     data.results.filter(function(resultats) {
+        //         console.log(resultats);
+        //         let films = document.getElementById("films");
+        //         let p = document.createElement('p');
+        //         let img = document.createElement('img');
+        //         img.src = "https://image.tmdb.org/t/p/original" + resultats.poster_path;
+        //         p.innerHTML = resultats.title;
+        //         p.append(img);
+        //         //    console.log(p.innerHTML);
+        //         films.append(p);
+        //     });
+        // })
+       
         // })
         // let p = document.createElement("p");
 

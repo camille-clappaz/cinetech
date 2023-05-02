@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require("bdd.php");
 ?>
 <!DOCTYPE html>
@@ -9,6 +9,7 @@ require("bdd.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Cinetech</title>
 </head>
 
@@ -18,9 +19,9 @@ require("bdd.php");
     ?>
     <main>
         <form action="" method="post">
-            <input type="text" name="login" id="" placeholder="Login">
-            <input type="email" name="email" id="" placeholder="Email">
-            <input type="password" name="password" id="" placeholder="Password">
+            <input type="text" name="login" id="" placeholder="Login"><br>
+            <input type="email" name="email" id="" placeholder="Email"><br>
+            <input type="password" name="password" id="" placeholder="Password"><br>
             <button type="submit" name="connexion">Se connecter</button>
         </form>
     </main>
