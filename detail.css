@@ -1,0 +1,64 @@
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.bodyElmt {
+    width: 100%;
+}
+
+.poster {
+    width: 100vw;
+}
+
+h1 {
+    color: wheat;
+
+}
+
+#mediaDetail {
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center center; */
+    background-attachment: fixed;
+}
+#mediaInfo{
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(24, 24, 24, 1), rgba(24, 24, 24, 0) 100%);
+    padding: 5vw 5vw 40px 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fff;
+
+}
+#mediaInfo p{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+@media (max-width: 999px) {
+    #mediaDetail {
+        background-position: center center;
+        background-attachment: fixed;
+    }
+
+    #mediaInfo div,
+    #mediaInfo p {
+        width: 200%;
+    }
+
+}
+
+@media (max-width: 650px) {
+    #mediaInfo {
+        justify-content: center;
+    }
+
+}

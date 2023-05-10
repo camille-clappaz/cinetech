@@ -3,31 +3,31 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-}
+    }
 
 /* INDEX */
 /* images index */
-/* body {
-    /* background-color: black; */
-/* } */
-main{
+body {
+     background-color: #141414; 
+ } 
+ .connexionForm{
     display: flex;
 	flex-direction: column;
 	min-height: 80vh;
 	justify-content: center;
-    align-items: center;
-}
-img{
-    width: 10vw
+    
 }
 
-header nav{
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-}
 
-main input {
+/* header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-bottom: 5vh;
+} */
+
+
+.connexionForm {
     width: 200px;
     height: 45px;
     border: none;
@@ -41,7 +41,7 @@ main input {
     box-shadow: 3px 3px 10px rgba(0,0,0,1),
     -1px -1px 6px rgba(255, 255, 255, 0.4);
   }
- button {
+ /* button {
     width: 200px;
     height: 45px;
 	font-family: monospace;
@@ -54,4 +54,83 @@ main input {
 	border-radius: 0.25rem;
 	cursor: pointer;
 	transition: all ease 0.3s;
+} */
+h1{
+    color: white;
+}
+.scroll_container {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: #141414;
+    height: 390px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    gap: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll_bloc {
+    margin: 13vh 4vh;
+}
+
+.scroll_container::-webkit-scrollbar {
+    height: 1vh;
+    background: #101010;
+}
+
+.scroll_container::-webkit-scrollbar-thumb {
+    background: #7f0d12;
+    border-radius: 2px;
+    max-width: 20px;
+    width: 100%;
+}
+
+.scroll_container::-webkit-scrollbar-thumb:hover {
+    background: #e50915;
+}
+
+
+
+.scroll_bloc h2 {
+    margin-left: .5vh;
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    color: #FFFFFF;
+    opacity: 0.9;
+}
+
+main img {
+    height: 90%;
+    min-width: 190px;
+    max-width: 190px;
+    margin-bottom: 0;
+    transition: transform .4s;
+}
+
+
+main img:hover {
+
+    cursor: pointer;
+    transform: scale(1.08);
+    border: 1px solid white;
+}
+@media (max-width: 400px){
+    .scroll_container {
+        padding-left: 2vw;
+        padding-right: 2vw;
+        background-color: #141414;
+        height: 390px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+        gap: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
 }

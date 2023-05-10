@@ -17,7 +17,7 @@ require("bdd.php");
     <?php
     require("header.php");
     ?>
-    <main>
+    <main class="connexionForm">
         <form action="" method="post">
             <input type="text" name="login" id="" placeholder="Login"><br>
             <input type="email" name="email" id="" placeholder="Email"><br>

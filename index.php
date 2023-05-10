@@ -13,12 +13,35 @@
 </head>
 
 <body>
+
+
     <?php
     require("header.php");
     ?>
     <main>
-        <div id="films"></div>
-        <div class="series"></div>
+        <section class="container">
+
+            <div class="scroll_bloc hover">
+                <h2>The most popular movies</h2>
+                <article class="scroll_container popular_movie"></article>
+            </div>
+
+            <div class="scroll_bloc hover">
+                <h2>The most popular tv</h2>
+                <article class="scroll_container popular_tv"></article>
+            </div>
+
+            <div class="scroll_bloc hover">
+                <h2>Top rated movies</h2>
+                <article class="scroll_container top_rated_movie"></article>
+            </div>
+
+            <div class="scroll_bloc hover">
+                <h2>Top rated tv</h2>
+                <article class="scroll_container top_rated_series "></article>
+            </div>
+
+        </section>
     </main>
 
     <script>
@@ -28,47 +51,102 @@
         }).then((res) =>
             res.json()
         ).then((data) => {
+            let popular_movie_container = document.querySelector('.popular_movie');
             data.results.filter(function(resultats) {
-                console.log(resultats);
-                let films = document.getElementById("films");
-                let p = document.createElement('p');
-                let img = document.createElement('img');
-                img.src = "https://image.tmdb.org/t/p/original" + resultats.poster_path;
-                p.innerHTML = resultats.title;
-                p.append(img);
-                //    console.log(p.innerHTML);
-                films.append(p);
+                console.log(resultats)
+                const film = document.createElement('div')
+                        let img = document.createElement('img');
+                        let a = document.createElement("a");
+                for (let i = 0; i < 20; i++) {
+                    if (resultats.poster_path != null) {
+                        
+                        a.setAttribute("href", "detail.php?movie_id=" + resultats.id);
+                        img.src = "https://image.tmdb.org/t/p/original" + resultats.poster_path;
+                        a.append(img);
+                        film.append(a);
+                        film.className = "scroll_card"
+                        popular_movie_container.append(film)
+                    }
+                }
             });
         })
-        // fetch(' https://api.themoviedb.org/3/search/multi?api_key=7c8573e07bc29f162cd95a3850c8b3b1&language=en-US&page=1&include_adult=false', {
-        //     method: 'GET'
-        // }).then((res) =>
-        //     res.json()
-        // ).then((data) => {
-        //     data.results.filter(function(resultats) {
-        //         console.log(resultats);
-        //         let films = document.getElementById("films");
-        //         let p = document.createElement('p');
-        //         let img = document.createElement('img');
-        //         img.src = "https://image.tmdb.org/t/p/original" + resultats.poster_path;
-        //         p.innerHTML = resultats.title;
-        //         p.append(img);
-        //         //    console.log(p.innerHTML);
-        //         films.append(p);
-        //     });
-        // })
-       
-        // })
-        // let p = document.createElement("p");
 
-        // p.textContent=data.title;
-        // films.append("p");
-        // for(i=2; i<10; i++){
-        // fetch('https://api.themoviedb.org/3/movie/'+i+'?api_key=7c8573e07bc29f162cd95a3850c8b3b1', { method: 'GET' }).then(res=> res.json()).then(data =>console.log(data.title));
-        // }
+        // récuperer les séries populaires
+        fetch('https://api.themoviedb.org/3/tv/popular?api_key=7c8573e07bc29f162cd95a3850c8b3b1', {
+            method: 'GET'
+        }).then((res) =>
+            res.json()
+        ).then((data) => {
+            let popular_tv_container = document.querySelector('.popular_tv');
+            data.results.filter(function(resultats) {
+                console.log(resultats)
+                const serie = document.createElement('div')
+                        let img = document.createElement('img');
+                        let a = document.createElement("a");
+                for (let i = 0; i < 20; i++) {
+                    if (resultats.poster_path != null) {
+                        
+                        a.setAttribute("href", "detail.php?movie_id=" + resultats.id);
+                        img.src = "https://image.tmdb.org/t/p/original" + resultats.poster_path;
+                        a.append(img);
+                        serie.append(a);
+                        serie.className = "scroll_card"
+                        popular_tv_container.append(serie)
+                    }
+                }
+            });
+        })
+         // récuperer les films les mieux notées
+         fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=7c8573e07bc29f162cd95a3850c8b3b1', {
+            method: 'GET'
+        }).then((res) =>
+            res.json()
+        ).then((data) => {
+            let TR_movie_container = document.querySelector('.top_rated_movie');
+            data.results.filter(function(resultats) {
+                console.log(resultats)
+                const movieTr = document.createElement('div')
+                        let img = document.createElement('img');
+                        let a = document.createElement("a");
+                for (let i = 0; i < 20; i++) {
+                    if (resultats.poster_path != null) {
+                        
+                        a.setAttribute("href", "detail.php?movie_id=" + resultats.id);
+                        img.src = "https://image.tmdb.org/t/p/original" + resultats.poster_path;
+                        a.append(img);
+                        movieTr.append(a);
+                        movieTr.className = "scroll_card"
+                        TR_movie_container.append(movieTr)
+                    }
+                }
+            });
+        })
+
+         // récuperer les séries les mieux notées
+         fetch('https://api.themoviedb.org/3/tv/top_rated?api_key=7c8573e07bc29f162cd95a3850c8b3b1', {
+            method: 'GET'
+        }).then((res) =>
+            res.json()
+        ).then((data) => {
+            let TR_tv_container = document.querySelector('.top_rated_series');
+            data.results.filter(function(resultats) {
+                console.log(resultats)
+                const movieTr = document.createElement('div')
+                        let img = document.createElement('img');
+                        let a = document.createElement("a");
+                for (let i = 0; i < 20; i++) {
+                    if (resultats.poster_path != null) {
+                        
+                        a.setAttribute("href", "detail.php?movie_id=" + resultats.id);
+                        img.src = "https://image.tmdb.org/t/p/original" + resultats.poster_path;
+                        a.append(img);
+                        movieTr.append(a);
+                        movieTr.className = "scroll_card"
+                        TR_tv_container.append(movieTr)
+                    }
+                }
+            });
+        })
     </script>
 </body>
-<?php
-var_dump($_SESSION);
-?>
 </html>
